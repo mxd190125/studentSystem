@@ -201,7 +201,7 @@ INSERT INTO `teacher` VALUES ('9005', '李梅', '654321', '男', '严厉！');
 DROP TABLE IF EXISTS `wang`;
 CREATE TABLE `wang`  (
   `id` int(11) NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of wang

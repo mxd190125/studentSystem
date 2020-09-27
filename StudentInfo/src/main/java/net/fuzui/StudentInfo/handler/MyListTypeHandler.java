@@ -16,6 +16,7 @@ import java.util.List;
 @MappedJdbcTypes({JdbcType.VARCHAR})
 public class MyListTypeHandler extends BaseTypeHandler<List<String>> {
 
+    @Override
     public void setNonNullParameter(PreparedStatement preparedStatement, int i, List<String> strings, JdbcType jdbcType) throws SQLException {
         //1.List集合转字符串
         StringBuffer sb = new StringBuffer();
@@ -26,16 +27,19 @@ public class MyListTypeHandler extends BaseTypeHandler<List<String>> {
         preparedStatement.setString(i, sb.toString().substring(0, sb.toString().length() - 1));
     }
 
+    @Override
     public List<String> getNullableResult(ResultSet resultSet, String s) throws SQLException {
         String[] split = resultSet.getString(s).split(",");
         return Arrays.asList(split);
     }
 
+    @Override
     public List<String> getNullableResult(ResultSet resultSet, int i) throws SQLException {
         String[] split = resultSet.getString(i).split(",");
         return Arrays.asList(split);
     }
 
+    @Override
     public List<String> getNullableResult(CallableStatement callableStatement, int i) throws SQLException {
         String[] split = callableStatement.getString(i).split(",");
         return Arrays.asList(split);
